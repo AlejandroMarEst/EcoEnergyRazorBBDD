@@ -1,9 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcoEnergyRazorBBDD.Models
 {
     public class EnergyIndicator
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         [Required(ErrorMessage = "This camp is required")]
         public DateTime Date { get; set; }
         public double PBEE_Hydroelectric { get; set; }
