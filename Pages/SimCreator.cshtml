@@ -1,0 +1,74 @@
+﻿@page
+@model EcoEnergyRazor.Pages.SimCreatorModel
+@{
+    ViewData["Title"] = "Simulations Creator";
+}
+<h2>Simulations Creator</h2>
+<form method="post">
+    <div class="form-text">
+        <label asp-for="Type">
+            Select the type of energy:
+            <select asp-for="Type" class="form-control">
+                <option disabled selected>Select an option...</option>
+                @foreach (var type in Enum.GetValues(typeof(Models.EnergySystem.EnergyType)))
+                {
+                    <option value="@type">@type</option>
+                }
+            </select>
+            <span asp-validation-for="Type" class="text-danger"></span>
+        </label>
+    </div>
+
+    <div class="d-sm-none form-text" id="water">
+        <label asp-for="HydroElectricSystem.WaterLevel">
+            Water Level:
+            <input asp-for="HydroElectricSystem.WaterLevel" type="number" class="form-control" />
+            <span asp-validation-for="HydroElectricSystem.WaterLevel" class="text-danger"></span>
+        </label>
+    </div>
+
+    <div class="d-sm-none form-text" id="wind">
+        <label asp-for="EolicSystem.WindVelocity">
+            Wind Speed:
+            <input asp-for="EolicSystem.WindVelocity" type="number" class="form-control" />
+            <span asp-validation-for="EolicSystem.WindVelocity" class="text-danger"></span>
+        </label>
+    </div>
+
+    <div class="d-sm-none form-text" id="solar">
+        <label asp-for="SolarSystem.SunHours">
+            Sun Hours:
+            <input asp-for="SolarSystem.SunHours" type="number" class="form-control" />
+            <span asp-validation-for="SolarSystem.SunHours" class="text-danger"></span>
+        </label>
+    </div>
+
+    <div class="form-text">
+        <label asp-for="EnergySystem.Price">
+            Price per kWh:
+            <input asp-for="EnergySystem.Price" type="number" class="form-control" required />
+            <span asp-validation-for="EnergySystem.Price" class="text-danger"></span>
+        </label>
+    </div>
+
+    <div class="form-text">
+        <label asp-for="EnergySystem.Ratio">
+            Energy Ratio:
+            <input asp-for="EnergySystem.Ratio" type="number" class="form-control" required />
+            <span asp-validation-for="EnergySystem.Ratio" class="text-danger"></span>
+        </label>
+    </div>
+
+    <div class="form-text">
+        <label asp-for="EnergySystem.Cost">
+            Cost per kWh:
+            <input asp-for="EnergySystem.Cost" type="number" class="form-control" required />
+            <span asp-validation-for="EnergySystem.Cost" class="text-danger"></span>
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="Submit">Submit</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
