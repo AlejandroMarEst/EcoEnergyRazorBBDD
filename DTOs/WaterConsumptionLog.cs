@@ -1,9 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcoEnergyRazorBBDD.Models
 {
     public class WaterConsumptionLog
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         [Required(ErrorMessage = "This field is necessary")]
         public int Year { get; set; }
         [Required(ErrorMessage = "This field is necessary")]
