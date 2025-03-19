@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace EcoEnergyRazor.Pages;
+namespace EcoEnergyRazorBBDD.Pages;
 
 public class IndexModel : PageModel
 {

@@ -1,9 +1,9 @@
-using EcoEnergyRazor.Models;
+using EcoEnergyRazorBBDD.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text.Json;
 
-namespace EcoEnergyRazor.Pages
+namespace EcoEnergyRazorBBDD.Pages
 {
     // PageModel for inserting a new energy indicator
     public class InsertEnergyIndicatorModel : PageModel

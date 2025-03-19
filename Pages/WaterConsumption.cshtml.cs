@@ -1,19 +1,16 @@
 using CsvHelper;
 using CsvHelper.Configuration;
-using EcoEnergyRazor.Models;
+using EcoEnergyRazorBBDD.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Globalization;
 
-namespace EcoEnergyRazor.Pages
+namespace EcoEnergyRazorBBDD.Pages
 {
     // PageModel for displaying water consumption data
     public class WaterConsumptionModel : PageModel
     {
         public List<WaterConsumptionLog> WaterConsumptionList { get; set; } = new List<WaterConsumptionLog>();
-        public List<WaterConsumptionLog> BiggestConsumptions { get; set; } = new List<WaterConsumptionLog>();
-        public List<AvgConsumptions> AverageConsumptions { get; set; } = new List<AvgConsumptions>();
-        public List<string?> RisingConsumptions { get; set; } = new List<string?>();
         public bool Exists { get; set; } = true;
         public bool HasContent { get; set; } = true;
 
@@ -38,42 +35,8 @@ namespace EcoEnergyRazor.Pages
                     {
                         WaterConsumptionList.Add(line);
                     }
-
                     // Check if the file has any content
-                    if (WaterConsumptionList.Count == 0)
-                    {
-                        HasContent = false;
-                    }
-                    else
-                    {
-                        // Find the biggest water consumptions for the most recent year
-                        BiggestConsumptions = WaterConsumptionList
-                            .Where(x => x.Year == WaterConsumptionList.Max(x => x.Year))
-                            .OrderByDescending(x => x.Total)
-                            .ToList();
-
-                        // Calculate average water consumption per region
-                        AverageConsumptions = WaterConsumptionList
-                            .GroupBy(y => y.RegionName)
-                            .Select(y => new AvgConsumptions { Region = y.Key, AverageConsumption = y.Average(y => y.Total) })
-                            .OrderByDescending(y => y.AverageConsumption)
-                            .ToList();
-
-                        // Identify regions with increasing water consumption over the last 5 years
-                        int maxYear = WaterConsumptionList.Max(x => x.Year);
-                        int minYear = maxYear - 5;
-                        RisingConsumptions = WaterConsumptionList
-                            .Where(z => z.Year >= minYear)
-                            .GroupBy(z => z.RegionName)
-                            .Where(g =>
-                            {
-                                var minYearData = g.FirstOrDefault(r => r.Year == minYear);
-                                var maxYearData = g.FirstOrDefault(r => r.Year == maxYear);
-                                return minYearData != null && maxYearData != null && maxYearData.Total > minYearData.Total;
-                            })
-                            .Select(g => g.Key)
-                            .ToList();
-                    }
+                    HasContent = WaterConsumptionList.Count == 0;
                 }
             }
             else

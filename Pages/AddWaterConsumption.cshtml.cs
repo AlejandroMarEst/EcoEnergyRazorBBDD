@@ -1,9 +1,9 @@
-using EcoEnergyRazor.Models;
+using EcoEnergyRazorBBDD.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Xml.Linq;
 
-namespace EcoEnergyRazor.Pages
+namespace EcoEnergyRazorBBDD.Pages
 {
     public class AddWaterConsumptionModel : PageModel
     {

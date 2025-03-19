@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Hosting;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace EcoEnergyRazor.Models
+namespace EcoEnergyRazorBBDD.Models
 {
     public class HydroElectricSystem : EnergySystem, IEnergyCalculation
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EcoEnergyRazor.Models
+namespace EcoEnergyRazorBBDD.Models
 {
     public class EnergyIndicator
     {

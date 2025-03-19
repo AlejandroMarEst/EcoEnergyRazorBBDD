@@ -1,4 +1,4 @@
-﻿namespace EcoEnergyRazor.Models
+﻿namespace EcoEnergyRazorBBDD.Models
 {
     public interface IEnergyCalculation
     {

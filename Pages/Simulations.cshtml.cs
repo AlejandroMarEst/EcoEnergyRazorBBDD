@@ -1,11 +1,11 @@
-using EcoEnergyRazor.Models;
+using EcoEnergyRazorBBDD.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using CsvHelper;
 using System.Globalization;
 using CsvHelper.Configuration;
 
-namespace EcoEnergyRazor.Pages
+namespace EcoEnergyRazorBBDD.Pages
 {
     // PageModel for displaying saved energy simulations
     public class SimulationsModel : PageModel
