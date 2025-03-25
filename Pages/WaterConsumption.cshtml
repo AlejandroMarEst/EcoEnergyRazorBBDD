@@ -19,7 +19,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@if (!Model.FileHasRecords)
+			@if (!Model.Exists)
 			{
 				@foreach (var simulation in Model.WaterConsumptionList)
 				{
