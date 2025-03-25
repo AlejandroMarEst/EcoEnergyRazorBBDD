@@ -1,5 +1,6 @@
 using CsvHelper;
 using CsvHelper.Configuration;
+using EcoEnergyRazorBBDD.Data;
 using EcoEnergyRazorBBDD.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -24,10 +25,6 @@ namespace EcoEnergyRazorBBDD.Pages
 
         public IActionResult OnPost()
         {
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
-            {
-                HasHeaderRecord = false,
-            };
 
             // Validate inputs based on energy type
             switch (Type)
@@ -55,26 +52,24 @@ namespace EcoEnergyRazorBBDD.Pages
                     break;
             }
 
-            const string FilePath = "wwwroot/Files/simulations_energy.csv";
-            using var file = System.IO.File.Open(FilePath, FileMode.Append);
-            using var writer = new StreamWriter(file);
-            using var csv = new CsvWriter(writer, config);
-            csv.NextRecord();
-
             // Save the appropriate simulation record based on the energy type
+            using var context = new ApplicationDbContext();
             switch (Type)
             {
                 case EnergyType.SolarEnergy:
                     SolarSystem simulationSolar = new SolarSystem(SolarSystem!.SunHours, EnergySystem!.Price, EnergySystem.Ratio, EnergySystem.Cost);
-                    csv.WriteRecord(simulationSolar);
+                    context.Simulacions.Add(simulationSolar);
+                    context.SaveChanges();
                     break;
                 case EnergyType.EolicEnergy:
                     EolicSystem simulationEolic = new EolicSystem(EolicSystem!.WindVelocity, EnergySystem!.Price, EnergySystem.Ratio, EnergySystem.Cost);
-                    csv.WriteRecord(simulationEolic);
+                    context.Simulacions.Add(simulationEolic);
+                    context.SaveChanges();
                     break;
                 case EnergyType.HydroElectricEnergy:
                     HydroElectricSystem simulationWater = new HydroElectricSystem(HydroElectricSystem!.WaterLevel, EnergySystem!.Price, EnergySystem.Ratio, EnergySystem.Cost);
-                    csv.WriteRecord(simulationWater);
+                    context.Simulacions.Add(simulationWater);
+                    context.SaveChanges();
                     break;
             }
             return RedirectToPage("Simulations");
