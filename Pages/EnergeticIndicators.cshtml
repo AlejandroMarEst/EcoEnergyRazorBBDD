@@ -51,7 +51,7 @@
             </tr>
         </thead>
         <tbody>
-            @if (Model.FileExists && Model.FileHasRecords)
+            @if (Model.FileHasRecords)
 			{@foreach (var indicator in Model.EnergyIndicatorList)
 				{
             <tr>
