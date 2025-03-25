@@ -1,3 +1,4 @@
+using EcoEnergyRazorBBDD.Data;
 using EcoEnergyRazorBBDD.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,7 +13,6 @@ namespace EcoEnergyRazorBBDD.Pages
         public EnergyIndicator? EnergyIndicator { get; set; }
         public IActionResult OnPost()
         {
-            const string jsonPath = "wwwroot/Files/energy_indicators.json";
             const double defaultValue = 0;
 
             // Create a new EnergyIndicator object with specified and default values
@@ -59,33 +59,9 @@ namespace EcoEnergyRazorBBDD.Pages
                 CCAC_AutoGasoline = EnergyIndicator.CCAC_AutoGasoline,
                 CCAC_AutoDieselA = defaultValue
             };
-
-            List<EnergyIndicator> existingIndicators;
-
-            // Check if the JSON file exists, create if not
-            if (!System.IO.File.Exists(jsonPath))
-            {
-                System.IO.File.WriteAllText(jsonPath, "");
-            }
-
-            // Read existing indicators from the file
-            string jsonFromFile = System.IO.File.ReadAllText(jsonPath);
-            if (!string.IsNullOrEmpty(jsonFromFile))
-            {
-                existingIndicators = JsonSerializer.Deserialize<List<EnergyIndicator>>(jsonFromFile)!;
-            }
-            else
-            {
-                existingIndicators = new List<EnergyIndicator>();
-            }
-
-            // Add the new indicator and save the updated list
-            if (existingIndicators != null)
-            {
-                existingIndicators.Add(indicator);
-                string jsonString = JsonSerializer.Serialize(existingIndicators);
-                System.IO.File.WriteAllText(jsonPath, jsonString);
-            }
+            using var context = new ApplicationDbContext();
+            context.EnergyIndicator.Add(indicator);
+            context.SaveChanges();
             return RedirectToPage("EnergeticIndicators");
         }
     }
