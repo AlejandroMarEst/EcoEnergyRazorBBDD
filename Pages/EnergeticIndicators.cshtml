@@ -51,7 +51,7 @@
             </tr>
         </thead>
         <tbody>
-            @if (Model.FileHasRecords)
+            @if (Model.FileExists && Model.FileHasRecords)
 			{@foreach (var indicator in Model.EnergyIndicatorList)
 				{
             <tr>
@@ -99,7 +99,7 @@
 				} }
 			else
 			{
-            <tr>There are no energy indicators</tr>
+                <tr><td>There are no energy indicators</td></tr>
 			}
         </tbody>
     </table>

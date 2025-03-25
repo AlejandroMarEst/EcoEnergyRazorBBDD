@@ -19,11 +19,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@if (!Model.FileHasRecords)
-			{
-				<tr><td>There aren't any cosumptions</td></tr>
-			}
-			else
+			@if (!Model.Exists)
 			{
 				@foreach (var simulation in Model.WaterConsumptionList)
 				{
@@ -37,7 +33,10 @@
 						<td>@simulation.Total</td>
 						<td>@simulation.DomesticConsumption</td>
 					</tr>
-				}		}
+				}
+			} else {
+				<tr><td>There aren't any cosumptions</td></tr>
+			}
 		</tbody>
 	</table>
 </div>
