@@ -58,17 +58,17 @@ namespace EcoEnergyRazorBBDD.Pages
             {
                 case EnergyType.SolarEnergy:
                     SolarSystem simulationSolar = new SolarSystem(SolarSystem!.SunHours, EnergySystem!.Price, EnergySystem.Ratio, EnergySystem.Cost);
-                    context.Simulacions.Add(simulationSolar);
+                    context.Simulations.Add(simulationSolar);
                     context.SaveChanges();
                     break;
                 case EnergyType.EolicEnergy:
                     EolicSystem simulationEolic = new EolicSystem(EolicSystem!.WindVelocity, EnergySystem!.Price, EnergySystem.Ratio, EnergySystem.Cost);
-                    context.Simulacions.Add(simulationEolic);
+                    context.Simulations.Add(simulationEolic);
                     context.SaveChanges();
                     break;
                 case EnergyType.HydroElectricEnergy:
                     HydroElectricSystem simulationWater = new HydroElectricSystem(HydroElectricSystem!.WaterLevel, EnergySystem!.Price, EnergySystem.Ratio, EnergySystem.Cost);
-                    context.Simulacions.Add(simulationWater);
+                    context.Simulations.Add(simulationWater);
                     context.SaveChanges();
                     break;
             }

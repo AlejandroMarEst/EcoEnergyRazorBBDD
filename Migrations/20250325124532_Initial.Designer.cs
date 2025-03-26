@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcoEnergyRazorBBDD.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250319103315_Initial")]
+    [Migration("20250325124532_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -192,7 +192,7 @@ namespace EcoEnergyRazorBBDD.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Simulacions");
+                    b.ToTable("Simulations");
                 });
 
             modelBuilder.Entity("EcoEnergyRazorBBDD.Models.WaterConsumptionLog", b =>

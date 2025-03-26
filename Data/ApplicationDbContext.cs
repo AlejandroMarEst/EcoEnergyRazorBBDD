@@ -5,7 +5,7 @@ namespace EcoEnergyRazorBBDD.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<EnergySystem> Simulacions { get; set; }
+        public DbSet<EnergySystem> Simulations { get; set; }
         public DbSet<WaterConsumptionLog> WaterConsumption { get; set; }
         public DbSet<EnergyIndicator> EnergyIndicator { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

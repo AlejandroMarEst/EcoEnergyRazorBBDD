@@ -64,7 +64,7 @@ namespace EcoEnergyRazorBBDD.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Simulacions",
+                name: "Simulations",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -80,7 +80,7 @@ namespace EcoEnergyRazorBBDD.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Simulacions", x => x.Id);
+                    table.PrimaryKey("PK_Simulations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -111,7 +111,7 @@ namespace EcoEnergyRazorBBDD.Migrations
                 name: "EnergyIndicator");
 
             migrationBuilder.DropTable(
-                name: "Simulacions");
+                name: "Simulations");
 
             migrationBuilder.DropTable(
                 name: "WaterConsumption");

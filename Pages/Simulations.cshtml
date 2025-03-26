@@ -32,6 +32,7 @@
 						<td>@simulation.TotalCost</td>
 						<td>@simulation.Price</td>
 						<td>@simulation.TotalPrice</td>
+						<td><form method="post" aps-handler="DeleteRecord"><button type="submit" asp-page-handler="DeleteRecord" asp-route-id="@simulation.Id">X</button></form></td>
 					</tr>
 				}
 			}

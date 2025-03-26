@@ -17,8 +17,17 @@ namespace EcoEnergyRazorBBDD.Pages
         public void OnGet()
         {
             using var context = new ApplicationDbContext();
-            Simulations = context.Simulacions.ToList();
+            Simulations = context.Simulations.ToList();
             FileHasRecords = Simulations.Count > 0;
+        }
+        public IActionResult OnPostDeleteRecord(int id)
+        {
+            using var context = new ApplicationDbContext();
+            EnergySystem simDelete = context.Simulations.Find(id)!;
+            Console.WriteLine(simDelete);
+            context.Simulations.Remove(simDelete);
+            context.SaveChanges();
+            return RedirectToPage("Simulations");
         }
     }
 }
