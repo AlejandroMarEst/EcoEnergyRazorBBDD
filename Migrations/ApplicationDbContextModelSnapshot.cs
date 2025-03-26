@@ -189,7 +189,7 @@ namespace EcoEnergyRazorBBDD.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Simulacions");
+                    b.ToTable("Simulations");
                 });
 
             modelBuilder.Entity("EcoEnergyRazorBBDD.Models.WaterConsumptionLog", b =>

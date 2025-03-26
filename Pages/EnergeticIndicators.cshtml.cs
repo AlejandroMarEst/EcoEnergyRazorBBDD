@@ -22,5 +22,14 @@ namespace EcoEnergyRazorBBDD.Pages
             EnergyIndicatorList = context.EnergyIndicator.ToList();
             FileHasRecords = EnergyIndicatorList.Count > 0;
         }
+        public IActionResult OnPostDeleteRecord(int id)
+        {
+            using var context = new ApplicationDbContext();
+            EnergyIndicator simDelete = context.EnergyIndicator.Find(id)!;
+            Console.WriteLine(simDelete);
+            context.EnergyIndicator.Remove(simDelete);
+            context.SaveChanges();
+            return RedirectToPage("EnergyIndicators");
+        }
     }
 }

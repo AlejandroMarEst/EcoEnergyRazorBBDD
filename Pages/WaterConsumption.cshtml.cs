@@ -21,5 +21,14 @@ namespace EcoEnergyRazorBBDD.Pages
             WaterConsumptionList = context.WaterConsumption.ToList();
             FileHasRecords = WaterConsumptionList.Count > 0;
         }
+        public IActionResult OnPostDeleteRecord(int id)
+        {
+            using var context = new ApplicationDbContext();
+            WaterConsumptionLog simDelete = context.WaterConsumption.Find(id)!;
+            Console.WriteLine(simDelete);
+            context.WaterConsumption.Remove(simDelete);
+            context.SaveChanges();
+            return RedirectToPage("WaterConsumption");
+        }
     }
 }
