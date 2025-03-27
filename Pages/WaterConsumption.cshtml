@@ -36,10 +36,18 @@
 						<td><form method="post" aps-handler="UpdateRecord"><button type="submit" asp-page-handler="UpdateRecord" asp-route-id="@simulation.Id">Edit</button></form></td>
 					</tr>
 				}
-			} else {
+			}
+			else
+			{
 				<tr><td>There aren't any cosumptions</td></tr>
 			}
 		</tbody>
 	</table>
 </div>
-<a asp-page="/AddWaterConsumption" class="btn btn-primary">Add Water Consumption</a>
+<div>
+	<form method="post">
+		<a asp-page="/AddWaterConsumption" class="btn btn-primary">Add Water Consumption</a>
+		<button type="submit" asp-page-handler="Seed" class="btn btn-primary">Import CSV records</button>
+		<button type="submit" asp-page-handler="DeleteAll" class="btn btn-primary">Delete all records</button>
+	</form>
+</div>
