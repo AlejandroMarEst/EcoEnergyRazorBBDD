@@ -31,5 +31,9 @@ namespace EcoEnergyRazorBBDD.Pages
             context.SaveChanges();
             return RedirectToPage("EnergyIndicators");
         }
+        public IActionResult OnPostUpdateRecord(int id)
+        {
+            return RedirectToPage("UpdateEnergyIndicators", "Indicator", new { Id = id });
+        }
     }
 }

@@ -1,0 +1,59 @@
+﻿@page
+@model EcoEnergyRazorBBDD.Pages.UpdateSimulationModel
+@{
+    ViewData["Title"] = "Update Simulation";
+}
+<h2>Simulations Creator</h2>
+<form method="post">
+    <input type="hidden" asp-for=@Model.Simulation.Id />
+    <div class="form-text">
+        <label asp-for="Simulation.Type">
+            Select the type of energy:
+            <select asp-for="Simulation.Type" class="form-control">
+                <option disabled selected>Select an option...</option>
+                @foreach (var type in Enum.GetValues(typeof(Models.EnergySystem.EnergyType)))
+                {
+                    <option value="@type">@type</option>
+                }
+            </select>
+            <span asp-validation-for="Simulation.Type" class="text-danger"></span>
+        </label>
+    </div>
+
+    <div class="form-text">
+        <label asp-for="Simulation.Energy">
+            Energy amount:
+            <input asp-for="Simulation.Energy" type="number" class="form-control" />
+            <span asp-validation-for="Simulation.Energy" class="text-danger"></span>
+        </label>
+    </div>
+
+    <div class="form-text">
+        <label asp-for="Simulation.Price">
+            Price per kWh:
+            <input asp-for="Simulation.Price" type="number" class="form-control" required />
+            <span asp-validation-for="Simulation.Price" class="text-danger"></span>
+        </label>
+    </div>
+
+    <div class="form-text">
+        <label asp-for="Simulation.Ratio">
+            Energy Ratio:
+            <input asp-for="Simulation.Ratio" type="number" class="form-control" required />
+            <span asp-validation-for="Simulation.Ratio" class="text-danger"></span>
+        </label>
+    </div>
+
+    <div class="form-text">
+        <label asp-for="Simulation.Cost">
+            Cost per kWh:
+            <input asp-for="Simulation.Cost" type="number" class="form-control" required />
+            <span asp-validation-for="Simulation.Cost" class="text-danger"></span>
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="Submit">Submit</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

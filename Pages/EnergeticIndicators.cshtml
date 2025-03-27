@@ -96,6 +96,7 @@
                 <td>@indicator.CCAC_AutoGasoline</td>
                 <td>@indicator.CCAC_AutoDieselA</td>
                 <td><form method="post" aps-handler="DeleteRecord"><button type="submit" asp-page-handler="DeleteRecord" asp-route-id="@indicator.Id">X</button></form></td>
+                <td><form method="post" aps-handler="UpdateRecord"><button type="submit" asp-page-handler="UpdateRecord" asp-route-id="@indicator.Id">Edit</button></form></td>
             </tr>
 				} }
 			else

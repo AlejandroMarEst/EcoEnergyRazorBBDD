@@ -30,5 +30,9 @@ namespace EcoEnergyRazorBBDD.Pages
             context.SaveChanges();
             return RedirectToPage("WaterConsumption");
         }
+        public IActionResult OnPostUpdateRecord(int id)
+        {
+            return RedirectToPage("UpdateWaterConsumption", "Consumption", new { Id = id });
+        }
     }
 }

@@ -1,0 +1,69 @@
+﻿@page
+@model EcoEnergyRazorBBDD.Pages.UpdateWaterConsumptionModel
+@{
+    ViewData["Title"] = "Update Water Consumption";
+}
+<h2>Update Water Consumption</h2>
+<form method="post">
+    <input type="hidden" asp-for=@Model.WaterConsumption.Id />
+    <div class="form-group">
+        <label asp-for="WaterConsumption.Year">
+            Year:
+            <input asp-for="WaterConsumption.Year" class="form-control" value="@Model.WaterConsumption.Year" />
+            <span asp-validation-for="WaterConsumption.Year" class="text-danger"></span>
+        </label>
+    </div>
+    <div class="form-group">
+        <label asp-for="WaterConsumption.RegionID">
+            Region Code:
+            <input asp-for="WaterConsumption.RegionID" class="form-control" value="@Model.WaterConsumption.RegionID" />
+            <span asp-validation-for="WaterConsumption.RegionID" class="text-danger"></span>
+        </label>
+    </div>
+    <div class="form-group">
+        <label asp-for="WaterConsumption.RegionName">
+            Region Name:
+            <input asp-for="WaterConsumption.RegionName" class="form-control" value="@Model.WaterConsumption.RegionName" />
+            <span asp-validation-for="WaterConsumption.RegionName" class="text-danger"></span>
+        </label>
+    </div>
+    <div class="form-group">
+        <label asp-for="WaterConsumption.Population">
+            Population Number:
+            <input asp-for="WaterConsumption.Population" class="form-control" value="@Model.WaterConsumption.Population" />
+            <span asp-validation-for="WaterConsumption.Population" class="text-danger"></span>
+        </label>
+    </div>
+    <div class="form-group">
+        <label asp-for="WaterConsumption.DomesticNET">
+            Domestic Network Consumption:
+            <input asp-for="WaterConsumption.DomesticNET" class="form-control" value="@Model.WaterConsumption.DomesticNET" />
+            <span asp-validation-for="WaterConsumption.DomesticNET" class="text-danger"></span>
+        </label>
+    </div>
+    <div class="form-group">
+        <label asp-for="WaterConsumption.EconomicActivities">
+            Economic Activities and Own Sources Consumption:
+            <input asp-for="WaterConsumption.EconomicActivities" class="form-control" value="@Model.WaterConsumption.EconomicActivities" />
+            <span asp-validation-for="WaterConsumption.EconomicActivities" class="text-danger"></span>
+        </label>
+    </div>
+    <div class="form-group">
+        <label asp-for="WaterConsumption.Total">
+            Total Consumption:
+            <input asp-for="WaterConsumption.Total" class="form-control" value="@Model.WaterConsumption.Total" />
+            <span asp-validation-for="WaterConsumption.Total" class="text-danger"></span>
+        </label>
+    </div>
+    <div class="form-group">
+        <label asp-for="WaterConsumption.DomesticConsumption">
+            Per Capita Domestic Consumption:
+            <input asp-for="WaterConsumption.DomesticConsumption" class="form-control" value="@Model.WaterConsumption.DomesticConsumption" />
+            <span asp-validation-for="WaterConsumption.DomesticConsumption" class="text-danger"></span>
+        </label>
+    </div>
+    <div><button type="submit" class="btn btn-primary" id="Enviar">Update</button></div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
