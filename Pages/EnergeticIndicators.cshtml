@@ -106,5 +106,11 @@
         </tbody>
     </table>
 </div>
-<a asp-page="/InsertEnergyIndicator" class="btn btn-primary">Add Energetic Indicator</a>
+<div>
+    <form method="post">
+        <a asp-page="/InsertEnergyIndicator" class="btn btn-primary">Add Energetic Indicator</a>
+        <button type="submit" asp-page-handler="Seed" class="btn btn-primary">Import CSV records</button>
+        <button type="submit" asp-page-handler="DeleteAll" class="btn btn-primary">Delete all records</button>
+    </form>
+</div>
 <p>Register Count: @Model.EnergyIndicatorList.Count</p>

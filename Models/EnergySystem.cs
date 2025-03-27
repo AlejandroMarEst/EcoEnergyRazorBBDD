@@ -28,7 +28,5 @@ namespace EcoEnergyRazorBBDD.Models
         public EnergyType GetEnergyType() => Type;
         public double CalculateTotalCost() => Cost * Energy;
         public double CalculateTotalPrice() => Price * Energy;
-        public double CalculateRatio() => TotalPrice / TotalCost;
-
     }
 }
