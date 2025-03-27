@@ -29,5 +29,9 @@ namespace EcoEnergyRazorBBDD.Pages
             context.SaveChanges();
             return RedirectToPage("Simulations");
         }
+        public IActionResult OnPostUpdateRecord(int id)
+        {
+            return RedirectToPage("UpdateSimulation", "Simulation", new { Id = id });
+        }
     }
 }

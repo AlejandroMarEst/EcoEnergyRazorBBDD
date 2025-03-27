@@ -33,6 +33,7 @@
 						<td>@simulation.Total</td>
 						<td>@simulation.DomesticConsumption</td>
 						<td><form method="post" aps-handler="DeleteRecord"><button type="submit" asp-page-handler="DeleteRecord" asp-route-id="@simulation.Id">X</button></form></td>
+						<td><form method="post" aps-handler="UpdateRecord"><button type="submit" asp-page-handler="UpdateRecord" asp-route-id="@simulation.Id">Edit</button></form></td>
 					</tr>
 				}
 			} else {
